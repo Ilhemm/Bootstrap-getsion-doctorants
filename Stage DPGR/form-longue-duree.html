@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <title>Stage - DPGR</title>
+    <meta content="Gestion des stages" name="description" />
+    <meta content="Team Visionary" name="author" />
+    <link rel="shortcut icon" href="img/favicon.ico">
+
+    <link href="plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet">
+
+    <!--Morris Chart CSS -->
+    <!--<link rel="stylesheet" href="../plugins/morris/morris.css">-->
+
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="css/metismenu.min.css" rel="stylesheet" type="text/css">
+    <link href="css/icons.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+        <!-- Begin page -->
+        <div id="wrapper">
+
+            <!-- Top Bar Start -->
+            <div class="topbar">
+
+                <!-- LOGO -->
+                <div class="topbar-left">
+                    <a href="index.html" class="logo">
+                        <img src="img/logo-light.png" class="logo-lg" alt="" height="22">
+                        <img src="img/logo-sm.png" class="logo-sm" alt="" height="24">
+                    </a>
+                </div>
+    
+                <!-- Search input -->
+                <div class="search-wrap" id="search-wrap">
+                    <div class="search-bar">
+                        <input class="search-input" type="search" placeholder="Search" />
+                        <a href="#" class="close-search toggle-search" data-target="#search-wrap">
+                            <i class="mdi mdi-close-circle"></i>
+                        </a>
+                    </div>
+                </div>
+    
+                <nav class="navbar-custom">
+                    <ul class="navbar-right list-inline float-right mb-0">
+    
+                        <li class="list-inline-item dropdown notification-list d-none d-md-inline-block">
+                            <a class="nav-link waves-effect toggle-search" href="#" data-target="#search-wrap">
+                                <i class="fas fa-search noti-icon"></i>
+                            </a>
+                        </li>
+    
+                        <!-- full screen -->
+                        <li class="dropdown notification-list list-inline-item d-none d-md-inline-block">
+                            <a class="nav-link waves-effect" href="#" id="btn-fullscreen">
+                                <i class="fas fa-expand noti-icon"></i>
+                            </a>
+                        </li>
+    
+                        <!-- notification -->
+                        <li class="dropdown notification-list list-inline-item">
+                            <a class="nav-link dropdown-toggle arrow-none waves-effect" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                                <i class="fas fa-bell noti-icon"></i>
+                                <span class="badge badge-pill badge-danger noti-icon-badge">3</span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated dropdown-menu-lg px-1">
+                                <!-- item-->
+                                <h6 class="dropdown-item-text">
+                                            Notifications
+                                        </h6>
+                                <div class="slimscroll notification-item-list">
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item active">
+                                        <div class="notify-icon bg-info"><i class="mdi mdi-message-text-outline"></i></div>
+                                        <p class="notify-details"><b>10 réponses formulaire </b><span class="text-muted">Stage courte durée</span></p>
+                                    </a>
+    
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                        <div class="notify-icon bg-info"><i class="mdi mdi-message-text-outline"></i></div>
+                                        <p class="notify-details"><b>10 réponses CS</b><span class="text-muted">10 réponses CS.</span></p>
+                                    </a>
+    
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item active">
+                                        <div class="notify-icon bg-info"><i class="mdi mdi-message-text-outline"></i></div>
+                                        <p class="notify-details"><b>3 réponses formulaire </b><span class="text-muted">Stage longue durée</span></p>
+                                    </a>
+    
+                                </div>
+                                <!-- All-->
+                                <a href="javascript:void(0);" class="dropdown-item text-center notify-all text-primary">
+                                           Tout voir <i class="fi-arrow-right"></i>
+                                </a>
+                            </div>
+                        </li>
+    
+                        <li class="dropdown notification-list list-inline-item">
+                            <div class="dropdown notification-list nav-pro-img">
+                                <a class="dropdown-toggle nav-link arrow-none waves-effect nav-user" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                                    <img src="img/user-pic.jpeg" alt="user" class="rounded-circle">
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated profile-dropdown">
+                                    <!-- item-->
+                                    <a class="dropdown-item" href="#"><i class="mdi mdi-account-circle"></i> Profil</a>
+                                    <a class="dropdown-item d-block" href="#"><i class="mdi mdi-settings"></i> Paramètres</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item text-danger" href="index.html"><i class="mdi mdi-power text-danger"></i> Déconnexion</a>
+                                </div>
+                            </div>
+                        </li>
+    
+                    </ul>
+    
+                    <ul class="list-inline menu-left mb-0">
+                        <li class="float-left">
+                            <button class="button-menu-mobile open-left waves-effect">
+                                <i class="mdi mdi-menu"></i>
+                            </button>
+                        </li>
+                    </ul>
+    
+                </nav>
+    
+            </div>
+            <!-- Top Bar End -->
+            
+
+            <!-- ========== Left Sidebar Start ========== -->
+            <div class="left side-menu">
+                <div class="slimscroll-menu" id="remove-scroll">
+
+                    <!--- Sidemenu -->
+                    <div id="sidebar-menu">
+                        <!-- Left Menu Start -->
+                        <ul class="metismenu" id="side-menu">
+                            <li>
+                                <a href="formulaires-stage.html" class="waves-effect">
+                                    <i class="dripicons-document"></i><span> Formulaires de stage </span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="statistiques.html" class="waves-effect">
+                                    <i class="dripicons-meter"></i><span> Statistiques </span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="stages.html" class="waves-effect">
+                                    <i class="dripicons-view-list"></i><span> Stages </span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="doctorants.html" class="waves-effect">
+                                    <i class="dripicons-user-group"></i><span> Doctorants </span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="archives.html" class="waves-effect">
+                                    <i class="dripicons-archive"></i><span> Archives </span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="settings.html" class="waves-effect">
+                                    <i class="dripicons-scale"></i><span> Paramètres</span>
+                                </a>
+                            </li>
+
+                    </div>
+                    <!-- Sidebar -->
+                    <div class="clearfix"></div>
+
+                </div>
+                <!-- Sidebar -left -->
+
+            </div>
+             <!-- Left Sidebar End -->
+
+            <div class="content-page">
+                <!-- Start content -->
+                <div class="content">
+
+                    <div class="container-fluid">
+                        <div class="page-title-box">
+
+                            <div class="row align-items-center ">
+                                <div class="col-md-8">
+                                    <div class="page-title-box">
+                                        <h4 class="page-title">Demande de stage - longue durée</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="card">
+                                <div class="card-body">
+
+                                    <h4 class="mt-0 header-title">Informations sur le candidat</h4>
+
+                                    <form class="" action="#">
+                                        <div class="form-group">
+                                            <label>Nom en français</label>
+                                            <input type="text" class="form-control" required placeholder="Nom" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Prénom en français</label>
+                                            <input type="text" class="form-control" required placeholder="Prénom" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Nom de jeune fille en français</label>
+                                            <input type="text" class="form-control" required placeholder="Nom" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Nom en arabe</label>
+                                            <input type="text" class="form-control" required placeholder="اللقب"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Prénom en arabe</label>
+                                            <input type="text" class="form-control" required placeholder="الاسم"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Nom de jeune fille en arabe</label>
+                                            <input type="text" class="form-control" required placeholder="اسم الازدياد" />
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Date de naissance</label>
+                                            <input class="form-control" type="datetime-local"  id="example-datetime-local-input">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Lieu de naissance</label>
+                                            <input type="text" class="form-control" required placeholder="Lieu de naissance" />
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Age au moment de la candidature</label>
+                                            <input type="number" class="form-control" required placeholder="Age" />
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Situation familiale</label>
+                                            <select class="form-control">
+                                                <option>Sélectionner</option>
+                                                <option>Célibataire</option>
+                                                <option>Marié</option>
+                                                <option>Divorcé</option>
+                                                <option>Veuf</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Adresse personnelle</label>
+                                            <input type="text" class="form-control" required placeholder="Adresse" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Numéro de téléphone principal</label>
+                                            <input class="form-control" type="tel" value="+(213)-555-555-555" id="example-tel-input">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Numéro de téléphone secondaire</label>
+                                            <input class="form-control" type="tel" value="+(213)-555-555-555" id="example-tel-input">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Email</label>
+                                            <input type="email" class="form-control form-control-success" id="inputHorizontalSuccess" placeholder="name@example.com">
+                                            <div class="form-control-feedback">Oops!Veuillez entrer une adresse correcte</div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Numéro de passeport</label>
+                                            <input class="form-control" type="number" id="passport-input" required placeholder="Numéro de passeport">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Date de délivrance du passeport</label>
+                                            <input class="form-control" type="datetime-local"  id="example-datetime-local-input">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Status</label>
+                                            <select class="form-control">
+                                                <option>Enseignant</option>
+                                                <option>Doctorant non salarié</option>
+                                            </select>
+                                        </div>
+                                        <div class="form--cas-enseignant">
+                                            <div class="form-group">
+                                                <label>Grade</label>
+                                                <input type="text" class="form-control" required placeholder="Grade" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Nom de l'établissement de rattachement</label>
+                                                <input type="text" class="form-control" required placeholder="Nom de l'établissement de rattachement" />
+                                            </div>
+                                        </div>
+                                        <div class="form--cas-doctorant">
+                                            <div class="form-group">
+                                                <label>Dernier diplôme obtenu</label>
+                                                <input type="text" class="form-control" required placeholder="Dernier diplôme obtenu" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Date d'obtention du dernier diplôme</label>
+                                                <input class="form-control" type="datetime-local"  id="example-datetime-local-input">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Lieu d'obtention du dernier diplôme</label>
+                                                <input type="text" class="form-control" required placeholder="Adresse" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Nom de l'étabissement d'inscription en Algérie</label>
+                                            <input type="text" class="form-control" required placeholder="Nom de l'établissement"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Intitulé de la thèse</label>
+                                            <input type="text" class="form-control" required placeholder="Intitulé de la thèse"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Langue de rédaction de la thèse</label>
+                                            <select class="form-control">
+                                                <option>Français</option>
+                                                <option>Anglais</option>
+                                                <option>Arabe</option>
+                                                <option>Chinois</option>
+                                                <option>Espagnol</option>
+                                                <option>Italien</option>
+                                                <option>Portugais</option>
+                                                <option>Allemand</option>
+                                                <option>Russe</option>
+                                                <option>Japonais</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Niveau en francais (Conformément à l'attestation fournie dans le dossier)</label>
+                                            <select class="form-control">
+                                                <option>A1</option>
+                                                <option>A2</option>
+                                                <option>B1</option>
+                                                <option>B2</option>
+                                                <option>C1</option>
+                                                <option>C2</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Autres langues maitrisées</label>
+                                            <input type="text" class="form-control" required placeholder="Langues maitrisées"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Domaine</label>
+                                            <select class="form-control">
+                                                <option>Sciences humaines et sociales</option>
+                                                <option>Sciences de la nature et de la vie</option>
+                                                <option>Sciences exactes</option>
+                                                <option>Technologies/Sciences de l'ingénieur</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Filière</label>
+                                            <select class="form-control form-sciences-humaines">
+                                                <option>Droit</option>
+                                                <option>langues</option>
+                                                <option>Lettres</option>
+                                                <option>Education physique et sportive</option>
+                                                <option>Histoire</option>
+                                                <option>Philosophie</option>
+                                                <option>Psychologie</option>
+                                                <option>autre</option>
+                                            </select>
+                                            <select class="form-control form-sciences-nature">
+                                                <option>Sciences de la terre et de l'univers  (géologie, géographie, aménagement du territoire)</option>
+                                                <option>Biologie</option>
+                                                <option>Agronomie</option>
+                                                <option>Sciences médicales</option>
+                                                <option>Pharmacie</option>
+                                                <option>autre</option>
+                                            </select>
+                                            <select class="form-control form-sciences-exactes">
+                                                <option>Chimie</option>
+                                                <option>Mathématiques</option>
+                                                <option>Physique</option>
+                                                <option>Sciences de la matière</option>
+                                                <option>autre</option>
+                                            </select>
+                                            <select class="form-control form-sciences-tech">
+                                                <option>Architecture</option>
+                                                <option>Génie automatique</option>
+                                                <option>Génie chimique</option>
+                                                <option>Génie civile</option>
+                                                <option>Génie électronique</option>
+                                                <option>Génie électrotechnique</option>
+                                                <option>Génie électrique</option>
+                                                <option>Génie de l'environnement</option>
+                                            </select>
+                                            </div>
+                                    </div>
+                                        
+                                    </form>
+
+                            </div>
+                            <div class="card">
+                                <div class="card-body">
+                                    <button type="button" class="btn btn-primary waves-effect waves-light btn-block"><a href="form-rempli.html" class="text-white">Soumettre les réponses</a></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="card">
+                                <div class="card-body">
+
+                                    <h4 class="mt-0 header-title">Informations sur le directeur de thèse en Algérie</h4>
+
+                                    <form class="" action="#">
+                                        <div class="form-group">
+                                            <label>Nom</label>
+                                            <input type="text" class="form-control" required placeholder="Nom" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Prénom</label>
+                                            <input type="text" class="form-control" required placeholder="Prénom" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Grade</label>
+                                            <input type="text" class="form-control" required placeholder="Grade" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Nom de l'établissement de rattachement</label>
+                                            <input type="text" class="form-control" required placeholder="Nom de l'établissement de rattachement" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Numéro de téléphone principal</label>
+                                            <input class="form-control" type="tel" value="+(213)-555-555-555" id="example-tel-input">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Numéro de téléphone secondaire</label>
+                                            <input class="form-control" type="tel" value="+(213)-555-555-555" id="example-tel-input">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Email</label>
+                                            <input type="email" class="form-control form-control-success" id="inputHorizontalSuccess" placeholder="name@example.com">
+                                            <div class="form-control-feedback">Oops!Veuillez entrer une adresse correcte</div>
+                                        </div>    
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-body">
+
+                                    <h4 class="mt-0 header-title">Informations sur le coencadreur / codirecteur de thèse dans l'organisme d'accueil</h4>
+
+                                    <form class="" action="#">
+                                        <div class="form-group">
+                                            <label>Nom en lettre majuscules</label>
+                                            <input type="text" class="form-control" required placeholder="Nom" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Prénom</label>
+                                            <input type="text" class="form-control" required placeholder="Prénom" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Grade</label>
+                                            <input type="text" class="form-control" required placeholder="Grade" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Nom de l'établissement de rattachement</label>
+                                            <input type="text" class="form-control" required placeholder="Nom de l'établissement de rattachement"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Nom complet du laboratoire</label>
+                                            <input type="text" class="form-control" required placeholder="Nom complet du laboratoire"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Numéro de téléphone principal</label>
+                                            <input class="form-control" type="tel" value="+(213)-555-555-555" id="example-tel-input">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Numéro de téléphone secondaire</label>
+                                            <input class="form-control" type="tel" value="+(213)-555-555-555" id="example-tel-input">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Email</label>
+                                            <input type="email" class="form-control form-control-success" id="inputHorizontalSuccess" placeholder="name@example.com">
+                                            <div class="form-control-feedback">Oops!Veuillez entrer une adresse correcte</div>
+                                        </div>    
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-body">
+
+                                    <h4 class="mt-0 header-title">Informations sur l'école doctorale en France dans le cas d'une cotutelle</h4>
+
+                                    <form class="" action="#">
+                                        <div class="form-group">
+                                            <label>Nom de l'école doctorale</label>
+                                            <input type="text" class="form-control" required placeholder="Nom de l'école" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Nom du directeur de l'école doctorale</label>
+                                            <input type="text" class="form-control" required placeholder="Nom du directeur de l'école doctorale" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Prénom du directeur de l'école doctorale</label>
+                                            <input type="text" class="form-control" required placeholder="Prénom du directeur de l'école doctorale" />
+                                        </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-body">
+
+                                    <h4 class="mt-0 header-title">Informations sur la thèse du candidat</h4>
+
+                                    <form class="" action="#">
+                                        <div class="form-group">
+                                            <label>Problématique de la thèse et hypothèses de travail</label>
+                                            <input type="text" class="form-control" required placeholder="300 mots maximum" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Résultats attendus de la recherche</label>
+                                            <input type="text" class="form-control" required placeholder="300 mots maximum" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Descriptif des travaux déja réalisés dans le cadre de la thèse</label>
+                                            <input type="text" class="form-control" required placeholder="300 mots maximum" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Descriptif des travaux à réaliser pour terminer la thèse ainsi que le planning prévu</label>
+                                            <input type="text" class="form-control" required placeholder="300 mots maximum" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Programme de travail pendant la mobilité en France avec le planning</label>
+                                            <input type="text" class="form-control" required placeholder="300 mots maximum" />
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="mt-0 header-title">Informations sur la production scientifique du candidat</h4>
+
+                                    <div class="form-group">
+                                        <label>Articles publiés (références exactes)</label>
+                                        <input type="text" class="form-control" required placeholder="Articles publiés" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Communication dans le cadre de manifestations scientifiques (indiquer la date et le lieu)</label>
+                                        <input type="text" class="form-control" required placeholder=""/>
+                                    </div>
+
+                                    <p class="sub-title">Veuillez joindre les avis du directeur de thèse en Algérie, du codirecteur en France sur la qualité des traveaux et l'état d'avancement du candidat, l'avis du président de conseil scientifique de l'établissement d'inscription en thèse du doctorant non salarié ou de rattachement de doctorant enseignant-chercheur et l'avis du chef d'établissement (recteur ou directeur)<p>
+                                    <div class="">
+                                        <form action="#" class="dropzone">
+                                            <div class="fallback">
+                                                <input name="file" type="file" multiple="multiple">
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>  
+            </div> 
+
+        </div>
+        <!-- END wrapper -->
+
+        
+    <!-- jQuery  -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/metismenu.min.js"></script>
+    <script src="js/jquery.slimscroll.js"></script>
+    <script src="js/waves.min.js"></script>
+
+    <script src="../plugins/apexchart/apexcharts.min.js"></script>
+    <script src="plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+
+    <!--Morris Chart-->
+    <script src="../plugins/morris/morris.min.js"></script>
+    <script src="../plugins/raphael/raphael.min.js"></script>
+
+    <script src="pages-js/form-advanced.init.js"></script>
+    <script src="pages-js/form-editors.int.js"></script>
+    <script src="pages-js/form-validation.init.js"></script>
+    <script src="pages-js/form-wizard.init.js"></script>
+
+
+    <!-- App js -->
+     <script src="js/app.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <title>Stage - DPGR</title>
+    <meta content="Gestion des stages" name="description" />
+    <meta content="Team Visionary" name="author" />
+    <link rel="shortcut icon" href="img/favicon.ico">
+
+    <link href="../plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet">
+
+    <!--Morris Chart CSS -->
+    <!--<link rel="stylesheet" href="../plugins/morris/morris.css">-->
+
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="css/metismenu.min.css" rel="stylesheet" type="text/css">
+    <link href="css/icons.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+        <!-- Begin page -->
+        <div id="wrapper">
+
+            <!-- Top Bar Start -->
+            <div class="topbar">
+
+                <!-- LOGO -->
+                <div class="topbar-left">
+                    <a href="index.html" class="logo">
+                        <img src="img/logo-light.png" class="logo-lg" alt="" height="22">
+                        <img src="img/logo-sm.png" class="logo-sm" alt="" height="24">
+                    </a>
+                </div>
+    
+                <!-- Search input -->
+                <div class="search-wrap" id="search-wrap">
+                    <div class="search-bar">
+                        <input class="search-input" type="search" placeholder="Search" />
+                        <a href="#" class="close-search toggle-search" data-target="#search-wrap">
+                            <i class="mdi mdi-close-circle"></i>
+                        </a>
+                    </div>
+                </div>
+    
+                <nav class="navbar-custom">
+                    <ul class="navbar-right list-inline float-right mb-0">
+    
+                        <li class="list-inline-item dropdown notification-list d-none d-md-inline-block">
+                            <a class="nav-link waves-effect toggle-search" href="#" data-target="#search-wrap">
+                                <i class="fas fa-search noti-icon"></i>
+                            </a>
+                        </li>
+    
+                        <!-- full screen -->
+                        <li class="dropdown notification-list list-inline-item d-none d-md-inline-block">
+                            <a class="nav-link waves-effect" href="#" id="btn-fullscreen">
+                                <i class="fas fa-expand noti-icon"></i>
+                            </a>
+                        </li>
+    
+                        <!-- notification -->
+                        <li class="dropdown notification-list list-inline-item">
+                            <a class="nav-link dropdown-toggle arrow-none waves-effect" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                                <i class="fas fa-bell noti-icon"></i>
+                                <span class="badge badge-pill badge-danger noti-icon-badge">3</span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated dropdown-menu-lg px-1">
+                                <!-- item-->
+                                <h6 class="dropdown-item-text">
+                                            Notifications
+                                        </h6>
+                                <div class="slimscroll notification-item-list">
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item active">
+                                        <div class="notify-icon bg-info"><i class="mdi mdi-message-text-outline"></i></div>
+                                        <p class="notify-details"><b>10 réponses formulaire </b><span class="text-muted">Stage courte durée</span></p>
+                                    </a>
+    
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                        <div class="notify-icon bg-info"><i class="mdi mdi-message-text-outline"></i></div>
+                                        <p class="notify-details"><b>10 réponses CS</b><span class="text-muted">10 réponses CS.</span></p>
+                                    </a>
+    
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item active">
+                                        <div class="notify-icon bg-info"><i class="mdi mdi-message-text-outline"></i></div>
+                                        <p class="notify-details"><b>3 réponses formulaire </b><span class="text-muted">Stage longue durée</span></p>
+                                    </a>
+    
+                                </div>
+                                <!-- All-->
+                                <a href="javascript:void(0);" class="dropdown-item text-center notify-all text-primary">
+                                           Tout voir <i class="fi-arrow-right"></i>
+                                </a>
+                            </div>
+                        </li>
+    
+                        <li class="dropdown notification-list list-inline-item">
+                            <div class="dropdown notification-list nav-pro-img">
+                                <a class="dropdown-toggle nav-link arrow-none waves-effect nav-user" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                                    <img src="img/user-pic.jpeg" alt="user" class="rounded-circle">
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated profile-dropdown">
+                                    <!-- item-->
+                                    <a class="dropdown-item" href="#"><i class="mdi mdi-account-circle"></i> Profil</a>
+                                    <a class="dropdown-item d-block" href="#"><i class="mdi mdi-settings"></i> Paramètres</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item text-danger" href="index.html"><i class="mdi mdi-power text-danger"></i> Déconnexion</a>
+                                </div>
+                            </div>
+                        </li>
+    
+                    </ul>
+    
+                    <ul class="list-inline menu-left mb-0">
+                        <li class="float-left">
+                            <button class="button-menu-mobile open-left waves-effect">
+                                <i class="mdi mdi-menu"></i>
+                            </button>
+                        </li>
+                    </ul>
+    
+                </nav>
+    
+            </div>
+            <!-- Top Bar End -->
+            
+
+            <!-- ========== Left Sidebar Start ========== -->
+            <div class="left side-menu">
+                <div class="slimscroll-menu" id="remove-scroll">
+
+                    <!--- Sidemenu -->
+                    <div id="sidebar-menu">
+                        <!-- Left Menu Start -->
+                        <ul class="metismenu" id="side-menu">
+                            <li>
+                                <a href="formulaires-stage.html" class="waves-effect">
+                                    <i class="dripicons-document"></i><span> Formulaires de stage </span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="statistiques.html" class="waves-effect">
+                                    <i class="dripicons-meter"></i><span> Statistiques </span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="stages.html" class="waves-effect">
+                                    <i class="dripicons-view-list"></i><span> Stages </span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="doctorants.html" class="waves-effect">
+                                    <i class="dripicons-user-group"></i><span> Doctorants </span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="archives.html" class="waves-effect">
+                                    <i class="dripicons-archive"></i><span> Archives </span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="settings.html" class="waves-effect">
+                                    <i class="dripicons-scale"></i><span> Paramètres</span>
+                                </a>
+                            </li>
+
+                    </div>
+                    <!-- Sidebar -->
+                    <div class="clearfix"></div>
+
+                </div>
+                <!-- Sidebar -left -->
+
+            </div>
+             <!-- Left Sidebar End -->
+
+            <div class="content-page">
+                <!-- Start content -->
+                <div class="content">
+
+                    <div class="container-fluid">
+                        <div class="page-title-box">
+
+                            <div class="row align-items-center ">
+                                <div class="col-md-8">
+                                    <div class="page-title-box">
+                                        <h4 class="page-title">Statistiques</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>  
+            </div> 
+
+        </div>
+        <!-- END wrapper -->
+
+        
+    <!-- jQuery  -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/metismenu.min.js"></script>
+    <script src="js/jquery.slimscroll.js"></script>
+    <script src="js/waves.min.js"></script>
+
+    <script src="../plugins/apexchart/apexcharts.min.js"></script>
+    <script src="../plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+
+    <!--Morris Chart-->
+    <script src="../plugins/morris/morris.min.js"></script>
+    <script src="../plugins/raphael/raphael.min.js"></script>
+
+    <script src="pages/dashboard.init.js"></script>
+
+    <!-- App js -->
+     <script src="js/app.js"></script>
+
+</body>
+
+</html>
